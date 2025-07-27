@@ -1,7 +1,7 @@
 import { languages } from "./Languages"
 import React from "react"
 export default function App(){
-  const [word, setWord]= React.useState("react")
+  const [word, setWord]= React.useState("reactiree")
   const [guessedLetters, setGuessedLetters]=React.useState([])
 
   const keyboard="abcdefghijklmnopqrstuvwxyz"
@@ -10,20 +10,24 @@ export default function App(){
     <button className="keyboard-button">{letter.toUpperCase()}</button>
 
   ))
+
   
   const wordElement= word.split("").map(letter=>(
     <h1 className="letters">{guessedLetters.includes(letter)?letter.toUpperCase():""}</h1>
   ))
+
 
   const langaugeElements= languages.map(language=>{
     const styles={
         backgroundColor: language.backgroundColor,
         color: language.color
     }
+
     return (
     <span style={styles} className="languages-chips">{language.name}</span>
     )
   })
+
 
 
 
