@@ -7,7 +7,7 @@ export default function App(){
   const keyboard="abcdefghijklmnopqrstuvwxyz"
 
   const keyboardElements= keyboard.split("").map(letter=>(
-    <button className="keyboard-button">{letter.toUpperCase()}</button>
+    <button onClick={keyboardClick(letter)}className="keyboard-button">{letter.toUpperCase()}</button>
 
   ))
 
@@ -27,6 +27,10 @@ export default function App(){
     <span style={styles} className="languages-chips">{language.name}</span>
     )
   })
+
+  function keyboardClick(letter){
+    setGuessedLetters(prev=> [...prev, letter])
+  }
 
 
 
