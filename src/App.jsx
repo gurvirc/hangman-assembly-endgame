@@ -20,7 +20,7 @@ export default function App(){
     const styles=(guessedLetters.includes(letter) && word.includes(letter))?{backgroundColor:"#10A95B"}:{backgroundColor:"#EC5D49"}
 
     return(
-    <button style={guessedLetters.includes(letter)?styles: null} onClick={()=> keyboardClick(letter)} className="keyboard-button">{letter.toUpperCase()}</button>
+    <button disabled={isGameOver?true:false}style={guessedLetters.includes(letter)?styles: null} onClick={()=> keyboardClick(letter)} className="keyboard-button">{letter.toUpperCase()}</button>
     )
 })
 
