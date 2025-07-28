@@ -49,6 +49,10 @@ export default function App(){
     setGuessedLetters(prev=> [...prev, letter])
   }
 
+  function resetGame(){
+    
+  }
+
 
 
 
@@ -72,6 +76,7 @@ export default function App(){
       <section className="language-elements">{langaugeElements}</section>
       <section className="word-area">{wordElement}</section>
       <section className="keyboard">{keyboardElements}</section>
+      <button onClick={resetGame}className="new-game">New Game</button>
       
 
     </main>
