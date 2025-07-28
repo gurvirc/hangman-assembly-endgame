@@ -61,7 +61,36 @@ export default function App(){
 
 
 
+  function renderGameStatus(){
+    if(isGameWon){
+      return(
+        <>
+            <h2>You win!</h2>
+             <p>Well done! 🎉</p>
+        </>
 
+      )
+    }
+
+    if(isGameLost){
+      return( 
+      <>
+          <h2 >Game over!</h2>
+          <p>You lose! Better start learning Assembly 😭</p>
+      </>
+      )
+    }
+    if(!isGameOver && wrongGuessCount>0)
+      return(
+        <p>
+          {getFarewellText(languages[wrongGuessCount-1].name)}
+      </p>
+      )
+      else
+        return null
+  }
+    const styles={backgroundColor:isGameLost?"#BA2A2A":"#10A95B"}
+    const styles2={backgroundColor:wrongGuessCount==0?"#282726":"#7A5EA7"}
 
 
 
@@ -75,10 +104,9 @@ export default function App(){
         <h1>Assembly: Endgame</h1>
         <p>Guess the word in under 8 attempts to keep the programming world safe from Assembly!</p>
       </header>
-      {isGameWon && <section className="game-status">
-        <h1>You win!</h1>
-        <h2>Well done! 🎉</h2>
-      </section>}
+      <section  style={isGameOver?styles:styles2}className="game-status">
+        {renderGameStatus()}
+        </section>
       <section className="language-elements">{langaugeElements}</section>
       <section className="word-area">{wordElement}</section>
       <section className="keyboard">{keyboardElements}</section>

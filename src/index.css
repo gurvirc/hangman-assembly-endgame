@@ -55,6 +55,7 @@ header > p {
 
 .game-status > h2 {
   margin: 2px;
+  font-size: small;
 }
 
 .language-elements{
