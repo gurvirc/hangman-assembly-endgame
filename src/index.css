@@ -117,3 +117,29 @@ header > p {
   gap: 10px;
   justify-content: center;
 }
+
+.lost-chips {
+  position: relative;
+  display: flex;
+  height: 35px;
+  border-radius: 3px;
+  padding: 3px;
+  align-items: center;
+}
+
+.lost-chips::before {
+  content: "💀";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 0.85rem;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+

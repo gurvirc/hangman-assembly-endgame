@@ -2,10 +2,13 @@ import { languages } from "./Languages"
 import React from "react"
 
 
+
 export default function App(){
 
   const [word, setWord]= React.useState("reactiree")
   const [guessedLetters, setGuessedLetters]=React.useState([])
+
+  const wrongGuessCount= guessedLetters.filter(letter=> !word.includes(letter)).length  
 
   const keyboard="abcdefghijklmnopqrstuvwxyz"
 
@@ -23,14 +26,15 @@ export default function App(){
   ))
 
 
-  const langaugeElements= languages.map(language=>{
+  const langaugeElements= languages.map((language, index)=>{
+    const isLanguageLost=wrongGuessCount-1>=index
     const styles={
         backgroundColor: language.backgroundColor,
         color: language.color
     }
 
     return (
-    <span style={styles} className="languages-chips">{language.name}</span>
+    <span style={styles} className={isLanguageLost?"lost-chips":"languages-chips"}>{language.name}</span>
     )
   })
 
