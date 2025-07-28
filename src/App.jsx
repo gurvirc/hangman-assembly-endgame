@@ -1,15 +1,21 @@
 import { languages } from "./Languages"
 import React from "react"
+
+
 export default function App(){
+
   const [word, setWord]= React.useState("reactiree")
   const [guessedLetters, setGuessedLetters]=React.useState([])
 
   const keyboard="abcdefghijklmnopqrstuvwxyz"
 
-  const keyboardElements= keyboard.split("").map(letter=>(
-    <button onClick={keyboardClick(letter)}className="keyboard-button">{letter.toUpperCase()}</button>
+  const keyboardElements= keyboard.split("").map(letter=>{
+    const styles=(guessedLetters.includes(letter) && word.includes(letter))?{backgroundColor:"#10A95B"}:{backgroundColor:"#EC5D49"}
 
-  ))
+    return(
+    <button style={guessedLetters.includes(letter)?styles: null} onClick={()=> keyboardClick(letter)} className="keyboard-button">{letter.toUpperCase()}</button>
+    )
+})
 
   
   const wordElement= word.split("").map(letter=>(
