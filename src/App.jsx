@@ -1,11 +1,13 @@
 import { languages } from "./Languages"
 import React from "react"
+import { getFarewellText, getRandomWord } from "./Utils"
+
 
 
 
 export default function App(){
 
-  const [word, setWord]= React.useState("reactiree")
+  const [word, setWord]= React.useState(getRandomWord())
   const [guessedLetters, setGuessedLetters]=React.useState([])
 
   const wrongGuessCount= guessedLetters.filter(letter=> !word.includes(letter)).length  
@@ -50,7 +52,9 @@ export default function App(){
   }
 
   function resetGame(){
-    
+    setGuessedLetters([])
+    setWord(getRandomWord())
+
   }
 
 
@@ -64,7 +68,7 @@ export default function App(){
 
 
   return(
-    <main>
+     <main>
       <header>
         <h1>Assembly: Endgame</h1>
         <p>Guess the word in under 8 attempts to keep the programming world safe from Assembly!</p>
